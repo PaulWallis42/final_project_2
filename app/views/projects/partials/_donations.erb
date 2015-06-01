@@ -1,0 +1,9 @@
+<% if project.was_paid?(current_user) %>
+  <span class="btn btn-success donate_btn">You have already paid!</span>
+<% elsif project.is_payable_by(current_user) %>
+  <%= link_to_modal 'Pay', new_project_charge_path(project), class: 'btn btn-success donate_btn' %>
+<% elsif project.has_expired? %>
+  Project expired!
+<% else %>
+  <%= link_to_modal 'Donate', new_project_donation_path(project), class: 'btn btn-success donate_btn', id: 'donate_btn' %>
+<% end %>

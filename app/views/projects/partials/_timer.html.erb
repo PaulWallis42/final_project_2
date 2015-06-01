@@ -1,0 +1,8 @@
+<div class='timer_container'>
+  <h6 style='text-align:center;'> Expires in: </h6>
+  <div id="due_date_timer_<%= project.id %>" class="timer"></div>
+</div>
+
+<script>
+  <%= render partial: 'projects/js/timer', formats: [:js], locals: {project: project} %>
+</script>
